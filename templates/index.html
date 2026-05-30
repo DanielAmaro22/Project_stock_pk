@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Stock PK</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>STOCK PK</h1>
+    <table>
+        <tr>
+            <th>ARTICULO</th>
+            <th>CANTIDAD</th>
+            <th>ACCION</th>
+        </tr>
+        {% for item in arts %}
+        <tr>
+            <td>{{ item.articulo }}</td>
+            <td>{{ item.cantidad }}</td>
+            <td>
+                <a href="">Borrar</a>
+                <br>    
+                <a href="">Actualizar</a>
+            </td>
+        </tr>
+        {% endfor %}                   
+    </table>
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content" placeholder="Numero de articulo">
+        <input type="number" name="cantidad" id="cantidad" placeholder="cantidad" min="0">
+        <input type="submit" value="Agregar Total">
+    </form>
+</div>
+{% endblock %}
